@@ -1,8 +1,7 @@
 # Custom Open edX theme for Atentamente.mx
 
 ## To Install theme
-1. copy edx.install-theme.sh to /home/ubuntu/edx.install-theme.sh
-2. run the following
+1. copy installation scripts to your EC2 Ubuntu instance
 ```
 cd ~
 wget https://raw.githubusercontent.com/lpm0073/edx.config-atentamente/master/edx.install-theme.sh
@@ -10,6 +9,9 @@ wget https://raw.githubusercontent.com/lpm0073/edx.config-atentamente/master/edx
 chown ubuntu *.sh
 chgrp ubuntu *.sh
 chmod 755 *.sh
+```
+2. execute the installation script
+```
 sudo ./edx.install-theme.sh
 top
 ```
