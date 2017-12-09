@@ -5,21 +5,21 @@
 2. run the following
 ```
 cd ~
-chown ubuntu edx.install-theme.sh
-chgrp ubuntu edx.install-theme.sh
-chmod 755 edx.install-theme.sh
+wget https://raw.githubusercontent.com/lpm0073/edx.config-atentamente/master/edx.install-theme.sh
+wget https://raw.githubusercontent.com/lpm0073/edx.config-atentamente/master/edx.compile-assets.sh
+chown ubuntu *.sh
+chgrp ubuntu *.sh
+chmod 755 *.sh
 sudo ./edx.install-theme.sh
 top
 ```
 3. wait for edX system reboot to complete (takes around 5 minutes on an r3.large EC2 instance)
 4. Manually recompile update_assets
 ```
-sudo -H -u edxapp bash
-source /edx/app/edxapp/edxapp_env
-cd /edx/app/edxapp/edx-platform
-paver update_assets lms --settings=aws
-paver update_assets cms --settings=aws
+sudo nohup ./edx.compile-assets.sh &
+top
 ```
+5. wait for around 15 minutes or so on an r3.large EC2 instance
 
 
 ## To update server-vars.yml
