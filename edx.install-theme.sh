@@ -1,15 +1,10 @@
 #!/bin/bash
 
 rm -rf edx.config-atentamente
-rm -rf /edx/app/edxapp/themes/atentamente
 
 git clone https://github.com/lpm0073/edx.config-atentamente.git
 chown edxapp -R edx.config-atentamente
 chgrp edxapp -R edx.config-atentamente
-
-cd /edx/app/edxapp/
-sudo mkdir themes
-sudo mv /home/ubuntu/edx.config-atentamente/edx-platform/atentamente /edx/app/edxapp/themes/
 
 cp /home/ubuntu/edx.config-atentamente/conf/lms.env.json /edx/app/edxapp/lms.env.json
 cp /home/ubuntu/edx.config-atentamente/conf/lms.auth.json /edx/app/edxapp/lms.auth.json
