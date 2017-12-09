@@ -12,6 +12,14 @@ sudo ./edx.install-theme.sh
 top
 ```
 3. wait for edX system reboot to complete (takes around 5 minutes on an r3.large EC2 instance)
+4. Manually recompile update_assets
+```
+sudo -H -u edxapp bash
+source /edx/app/edxapp/edxapp_env
+cd /edx/app/edxapp/edx-platform
+paver update_assets lms --settings=aws
+paver update_assets cms --settings=aws
+```
 
 
 ## To update server-vars.yml
@@ -28,7 +36,7 @@ sudo vim /edx/app/nginx/sites-available/lms
 ```
 sudo service nginx restart
 ```
-4. re-instal the custom theme
+4. re-install this custom Open edX theme
 ```
 cd ~
 sudo ./edx.install-theme.sh
