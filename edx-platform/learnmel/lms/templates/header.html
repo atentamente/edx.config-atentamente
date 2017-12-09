@@ -1,0 +1,68 @@
+## mako
+<%page expression_filter="h" args="online_help_token"/>
+<style>
+/* ====================================================================
+   Begin: Added by McDaniel Aug-2017
+   Landing page customizations and responsive styling
+ * ==================================================================== */
+.custom-header {
+  width: 100%;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+.custom-header a {
+  text-decoration: none !important;
+}
+
+span.enlinea {
+  background-color: #336E96;  /* edX blue */
+  color: white;
+  border-radius: 5px;
+}
+
+span.in {
+  color: orange;
+  background-color: rgba(255,255,255,0);
+  padding-left: 3px;
+  padding-right: 3px;
+}
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+}
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+/********** ETLA Header **********/
+@media (max-width: 1000px) {
+  .custom-header {
+    visibility: hidden;
+    height: 0px;
+  }
+}
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+}
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+}
+/* ====================================================================
+   End: Added by McDaniel Nov-2017
+   Landing page customizations and responsive styling
+ * ==================================================================== */
+</style>
+
+<!-- begin: Added by mcdaniel -->
+<div class="custom-header" >
+  <a href="${marketing_link('ROOT')}">
+    <h1>Edugate Learning Center</h1>
+  </a>
+</div>
+<!-- end: Added by mcdaniel -->
+
+<%namespace name='static' file='static_content.html'/>
+<%include file="${static.get_template_path(relative_path='navigation/navigation.html')}"  args="online_help_token=online_help_token"  />
