@@ -1,6 +1,6 @@
 # Custom Open edX theme for Atentamente.mx
 
-##To Install theme
+## To Install theme
 1. copy edx.install-theme.sh to /home/ubuntu/edx.install-theme.sh
 2. run the following
 ```
@@ -13,13 +13,13 @@ top
 3. wait for edX system reboot to complete (takes around 5 minutes on an r3.large EC2 instance)
 
 
-##To update server-vars.yml
+## To update server-vars.yml
 ```
 sudo nohup /edx/bin/update edx-platform $(cd /edx/app/edxapp/edx-platform; git rev-parse HEAD) &
 ```
 
 
-###SMTP
+## SMTP Setup
 https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/64913413/How+to+make+SMTP+work+in+your+Open+EdX+fullstack+instance
 
 Host entrada: mail.enlinea.in
@@ -37,14 +37,14 @@ cs_comments_service_development
 
 https://stackoverflow.com/questions/36325662/how-to-backup-and-restore-open-edx-from-one-server-to-other
 
-###Backing up:
+## Backing up:
 ```
 mysqldump edxapp -u root --single-transaction > backup/backup.sql
 mongodump --db edxapp
 mongodump --db cs_comments_service_development
 ```
 
-###Restoring:
+## Restoring:
 ```
 mysql -u root edxapp < backup.sql
 mongo edxapp --eval "db.dropDatabase()"
@@ -52,7 +52,7 @@ mongorestore dump/
 ```
 
 
-####More detail (backup / restrore)
+### More detail (backup / restrore)
 https://github.com/alikhil/open-edx-configuring/blob/master/README.md#backuping-server-and-restoring-it-on-another-machine
 
 
@@ -108,7 +108,7 @@ mongorestore dump/
 ```
 
 
-##SSL Notes:
+## SSL Notes:
   https://github.com/CDOT-EDX/ProductionStackDocs/wiki/Configuring-SSL-for-NGINX
 
 Example to re-run Ansible playbook after the build:
