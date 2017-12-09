@@ -4,6 +4,7 @@
 1. copy edx.install-theme.sh to /home/ubuntu/edx.install-theme.sh
 2. run the following
 ```
+cd ~
 chown ubuntu edx.install-theme.sh
 chgrp ubuntu edx.install-theme.sh
 chmod 755 edx.install-theme.sh
@@ -14,9 +15,26 @@ top
 
 
 ## To update server-vars.yml
+1. Run edX update script
 ```
 sudo nohup /edx/bin/update edx-platform $(cd /edx/app/edxapp/edx-platform; git rev-parse HEAD) &
 ```
+2. Fix port problem in nginx for LMS
+```
+sudo vim /edx/app/nginx/sites-available/lms
+```
+  - on aproximately row 19, change "listen 18000 default_server;" to "listen 80 default_server;"
+3. restart nginx
+```
+sudo service nginx restart
+```
+4. re-instal the custom theme
+```
+cd ~
+sudo ./edx.install-theme.sh
+top
+```
+
 
 
 ## SMTP Setup
