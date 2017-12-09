@@ -1,14 +1,5 @@
-# theme-learnmel
+# theme-atentamente.mx
 
-courses.learnmel.com
-
-Ko Andrew
-Founder of EduGate Training Center
-No.30A, 4th Floor, U Tun Lin Chan St.,
-Kamaryut Tsp., Postal Code: 11430
-Yangon, Myanmar
-Contact No. +95 9422 540 237, +95 9263 281 989
-Website: www.elearning-myanmar.com
 
 
 SSL Note:
