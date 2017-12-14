@@ -136,9 +136,6 @@ mongorestore dump/
 ```
 
 
-## SSL Notes:
-  https://github.com/CDOT-EDX/ProductionStackDocs/wiki/Configuring-SSL-for-NGINX
-
 Example to re-run Ansible playbook after the build:
 ```
 cd /var/tmp/configuration/playbooks
@@ -156,3 +153,48 @@ CMS Custom Theming: to update static assets, like the logo in the page header fo
   paver update_assets cms --settings=aws
   paver update_assets lms --settings=aws
 ```
+
+## Lets Encrypt
+  https://certbot.eff.org/#ubuntuxenial-nginx
+  https://github.com/CDOT-EDX/ProductionStackDocs/wiki/Configuring-SSL-for-NGINX
+
+### Certificate:
+/etc/letsencrypt/live/edx.itvalletla.edu.mx/fullchain.pem
+
+
+### Key file has been saved at:
+/etc/letsencrypt/live/edx.itvalletla.edu.mx/privkey.pem
+
+Your cert will expire on 2018-03-11. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the "certonly" option. To non-interactively renew *all* of
+   your certificates, run "certbot renew"
+
+
+
+Install certbot and get a certificate for your Open EdX instance. Note that you
+will probably have to include several CN's or get several certificates, for
+example for the subdomains you have for studio, preview, etc. Find out where
+Certbot places your certificates, and remember that location.
+Next, we will add the certificate path to server-vars.yml so the update
+script can place them in the correct location:
+
+```
+NGINX_ENABLE_SSL: True
+NGINX_REDIRECT_TO_HTTPS: True
+NGINX_SSL_CERTIFICATE: '/etc/letsencrypt/live/edx.itvalletla.edu.mx/fullchain.pem'
+NGINX_SSL_KEY: '/etc/letsencrypt/live/edx.itvalletla.edu.mx/privkey.pem'
+```
+
+
+### Automating renewal
+The Certbot packages on your system come with a cron job that will renew your certificates automatically before they expire. Since Let's Encrypt certificates last for 90 days, it's highly advisable to take advantage of this feature. You can test automatic renewal for your certificates by running this command:
+
+```
+sudo certbot renew --dry-run
+```
+If that appears to be working correctly, you can arrange for automatic renewal by adding a cron or systemd job which runs the following:
+```
+certbot renew
+```
+More detailed information and options about renewal can be found in the full documentation.
