@@ -45,23 +45,71 @@ sudo ./edx.install-theme.sh
 top
 ```
 
-
-
 ## SMTP Setup
 https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/64913413/How+to+make+SMTP+work+in+your+Open+EdX+fullstack+instance
 
-Host entrada: mail.enlinea.in
-Port: 110
+### /edx/app/edxapp/lms.env.json
+```
+    "EMAIL_BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+    "EMAIL_HOST": "smtp.gmail.com",
+    "EMAIL_PORT": 587,
+    "EMAIL_USE_TLS": true,
 
-Host salida: mail.enlinea.in
-Port: 26
-puerto 587 (mediante TLS) (también se puede usar)
+    "EMAIL_HOST_PASSWORD": "*********",
+    "EMAIL_HOST_USER": "edx.atentamente@gmail.com",
+```
 
-/edx/app/edxapp/edx-platform/lms/envs/aws.pyc
-/edx/app/edxapp/edx-platform/cms/envs/common.py
+### /edx/app/edxapp/cms.env.json
+```
+    "EMAIL_BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+    "EMAIL_HOST": "smtp.gmail.com",
+    "EMAIL_PORT": 587,
+    "EMAIL_USE_TLS": true,
+
+    "EMAIL_HOST_PASSWORD": "*********",
+    "EMAIL_HOST_USER": "edx.atentamente@gmail.com",
+```
+
+### /edx/app/edxapp/lms.auth.json
+```
+"EMAIL_HOST_PASSWORD": "*********",
+"EMAIL_HOST_USER": "edx.atentamente@gmail.com",
+```
+### /edx/app/edxapp/cms.auth.json
+```
+"EMAIL_HOST_PASSWORD": "*********",
+"EMAIL_HOST_USER": "edx.atentamente@gmail.com",
+```
 
 
-cs_comments_service_development
+
+### edx-platform/lms/envs/common.py
+
+```
+EMAIL_BACKEND =django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''      #potentially fewer complications w gmail when these are left blank.
+EMAIL_HOST_PASSWORD = ''  #potentially fewer complications w gmail when these are left blank.
+```
+
+
+### edx-platform/lms/envs/content.py
+
+```
+EMAIL_BACKEND =django.core.mail.backends.smtp.EmailBackend'
+```
+
+
+### edx-platform/lms/envs/devstack.py
+
+```
+EMAIL_BACKEND =django.core.mail.backends.smtp.EmailBackend'
+```
+
+
+
 
 https://stackoverflow.com/questions/36325662/how-to-backup-and-restore-open-edx-from-one-server-to-other
 
