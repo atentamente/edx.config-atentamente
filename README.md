@@ -159,11 +159,11 @@ CMS Custom Theming: to update static assets, like the logo in the page header fo
   https://github.com/CDOT-EDX/ProductionStackDocs/wiki/Configuring-SSL-for-NGINX
 
 ### Certificate:
-/etc/letsencrypt/live/edx.itvalletla.edu.mx/fullchain.pem
+/etc/letsencrypt/live/educacion.atentamente.mx/fullchain.pem
 
 
 ### Key file has been saved at:
-/etc/letsencrypt/live/edx.itvalletla.edu.mx/privkey.pem
+/etc/letsencrypt/live/educacion.atentamente.mx/privkey.pem
 
 Your cert will expire on 2018-03-11. To obtain a new or tweaked
    version of this certificate in the future, simply run certbot again
@@ -182,8 +182,8 @@ script can place them in the correct location:
 ```
 NGINX_ENABLE_SSL: True
 NGINX_REDIRECT_TO_HTTPS: True
-NGINX_SSL_CERTIFICATE: '/etc/letsencrypt/live/edx.itvalletla.edu.mx/fullchain.pem'
-NGINX_SSL_KEY: '/etc/letsencrypt/live/edx.itvalletla.edu.mx/privkey.pem'
+NGINX_SSL_CERTIFICATE: '/etc/letsencrypt/live/educacion.atentamente.mx/fullchain.pem'
+NGINX_SSL_KEY: '/etc/letsencrypt/live/educacion.atentamente.mx/privkey.pem'
 ```
 
 
