@@ -2,8 +2,16 @@ upstream cms-backend {
             server 127.0.0.1:8010 fail_timeout=0;
     }
 
+
+server {
+    listen 80;
+    return 301 https://$host$request_uri;
+}
+
+
 server {
   # CMS configuration file for nginx, templated by ansible
+  server_name studio.atentamente.mx
       
   # Proxy to a remote maintanence page
   
@@ -12,10 +20,13 @@ server {
   error_page 502 /server/server-error.html;
   error_page 500 /server/server-error.html;
   
-  listen 18010 ssl;
+  listen 443 ssl; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/studio.atentamente.mx/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/studio.atentamente.mx/privkey.pem; # managed by Certbot
+  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-    
-  
+ 
   # Prevent invalid display courseware in IE 10+ with high privacy settings
   add_header P3P 'CP="Open edX does not have a P3P policy."';
 
@@ -130,5 +141,11 @@ server_tokens off;
     add_header "Cache-Control" $cache_header_short_lived always;
   }
 
+
+
+    # Redirect non-https traffic to https
+    # if ($scheme != "https") {
+    #     return 301 https://$host$request_uri;
+    # } # managed by Certbot
 
 }
