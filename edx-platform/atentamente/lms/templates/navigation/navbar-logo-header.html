@@ -14,6 +14,8 @@ from branding import api as branding_api
 %>
 
 <h1 class="hd logo-header">
+  <!--
+  removed by McDaniel dec-2017
   <div class="logo">
     <a href="${branding_api.get_home_url()}">
       <%block name="navigation_logo">
@@ -21,6 +23,7 @@ from branding import api as branding_api
       </%block>
     </a>
   </div>
+-->
   % if course:
     <div class="course-header">
       <span class="provider">${course.display_org_with_default}:</span>
