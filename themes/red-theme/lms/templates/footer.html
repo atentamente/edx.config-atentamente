@@ -19,9 +19,11 @@
     width: 80%;
   }
   .copyright {
-    background-color: black;
+    border-top: 1px solid #f1f1f1;
     color: #f1f1f1;
     text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   #footer-openedx ul a {
@@ -34,6 +36,23 @@
   margin: 0;
   padding: 0;
 }
+
+.footer-column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.footer-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media (max-width: 600px) {
+    .footer-column {
+        width: 100%;
+    }
+}
 </style>
 
 <div class="wrapper wrapper-footer">
@@ -45,6 +64,20 @@
       dir=${bidi}
     % endif
   >
+
+  <div class="footer-row">
+    <div class="footer-column">
+      <p>Column 1</p>
+    </div>
+    <div class="footer-column">
+      <p>Column 2</p>
+    </div>
+    <div class="footer-column">
+      <p>Column 3</p>
+    </div>
+  </div>
+
+
     <div class="colophon">
 
       <!--
@@ -96,12 +129,12 @@
       </p>
     </div>
     % endif
+
+    <div>
+      ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
+      <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
+    </div>
   </footer>
-</div>
-## copyright row at very bottom of site
-<div>
-  ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-  <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
 </div>
 % if include_dependencies:
   <%static:js group='base_vendor'/>
