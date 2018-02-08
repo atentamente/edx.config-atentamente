@@ -15,9 +15,25 @@
     width: 100%;
   }
 
+  #footer-openedx .colophon {
+    width: 80%;
+  }
   .copyright {
+    background-color: black;
+    color: #f1f1f1;
+    text-align: center;
+  }
+
+  #footer-openedx ul a {
     color: #f1f1f1;
   }
+
+#footer-openedx .footer-about-openedx {
+  float: right;
+  width: 20%;
+  margin: 0;
+  padding: 0;
+}
 </style>
 
 <div class="wrapper wrapper-footer">
@@ -57,8 +73,6 @@
       </div>
     -->
 
-      ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-      <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
 
       <nav class="nav-legal" aria-label="${_('Legal')}">
         <ul>
@@ -83,6 +97,11 @@
     </div>
     % endif
   </footer>
+</div>
+## copyright row at very bottom of site
+<div>
+  ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
+  <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
 </div>
 % if include_dependencies:
   <%static:js group='base_vendor'/>
