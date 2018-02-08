@@ -27,8 +27,12 @@
     margin-right: 5%;
   }
 
-  #footer-openedx ul a {
+  .wrapper-footer footer#footer-openedx ul a {
     color: #f1f1f1;
+  }
+
+  .wrapper-footer footer#footer-openedx a:hover {
+    border-bottom: 1px dotted #f1f1f1;
   }
 
 #footer-openedx .footer-about-openedx {
@@ -73,6 +77,11 @@
   padding-right: 5px;
 }
 
+.footer-column h6 {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid #f1f1f1;
+}
 </style>
 
 <div class="wrapper wrapper-footer">
@@ -87,18 +96,26 @@
         <p>Column 1</p>
       </div>
       <div class="footer-column">
-        <p>Column 2</p>
+        <h6>ENLACES</h6>
+        <ul>
+          <li><a href='http://atentamente.mx/' target='_blank'>AtentaMente.mx</a></li>
+          <li><a href='http://www.lidereseducativosbanorte.com/' target='_blank'>Lideres Educativos Banorte.com</a></li>
+          <li><a href='http://www.fundacionbanorte.com' target='_blank'>Fundación Banorte.com</a></li>
+        </ul>
       </div>
       <div class="footer-column">
-        <p>Column 3</p>
+        <h6>CONTACTO</h6>
+        <ul>
+          <li>Tamaulipas #236, interior 502 Col. Hipódromo</li>
+          <li>CDMX</li>
+          <li>+55 9688-6479 *55 7587-6143</li>
+          <li>info@atentamente.mx</li>
+        </ul>
       </div>
     </div>
 
     <div class="footer-footer">
       <div class="colophon">
-
-        <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
-
         <nav class="nav-legal" aria-label="${_('Legal')}">
           <ul>
             % for item_num, link in enumerate(footer['legal_links'], start=1):
@@ -109,6 +126,7 @@
             <li><a href="${footer['edx_org_link']['url']}">${footer['edx_org_link']['text']}</a></li>
           </ul>
         </nav>
+        <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
       </div>
 
       <div class="footer-about-openedx">
