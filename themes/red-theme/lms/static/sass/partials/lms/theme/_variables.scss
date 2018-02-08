@@ -13,3 +13,7 @@ $primary: $red;
 // Theme fonts
 //$font-family-sans-serif: cursive;
 $font-family-sans-serif: Merriweather;
+
+// Default bootstrap theming
+
+@import 'edx-bootstrap/sass/open-edx/theme';
