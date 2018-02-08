@@ -1,6 +1,9 @@
 // lms - utilities - variables
 // ====================
 
+// #ATENTAMENTE:   customizations for Atentamente / Fundación Banorte theme
+
+
 // #CONFIG:         paths and configuration
 // #UNITS:          Basic units of measurement
 // #GRID:           Grid and layout variables
@@ -460,7 +463,9 @@ $container-bg: $white !default;
 
 // header
 $header-image: linear-gradient(-90deg, rgba(255, 255, 255, 1), rgba(230, 230, 230, 0.9)) !default;
-$header-bg: $white !default;
+// #ATENTAMENTE
+$header-bg: #61514e !default;
+// #ATENTAMENTE
 $header-border-color: $blue !default;
 $header-graphic-super-color: $m-blue-d1 !default;
 $header-graphic-sub-color: $m-gray-d2 !default;

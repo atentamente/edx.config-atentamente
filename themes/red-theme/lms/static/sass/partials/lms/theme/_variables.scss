@@ -5,17 +5,15 @@
 // Note: define colors needed by your theme first
 
 // Define the primary red color
-$red: #d9534f;
+$red: #ea1d2d;
 
 // Make red the primary color
-$primary: #ea1d2d;    // from mauricio
+$primary: $red;    // from mauricio
 
 // Theme fonts
 //$font-family-sans-serif: cursive;
 $font-family-sans-serif: Merriweather;
 
-//added by McDaniel
-$header-bg: #61514e;
 
 
 // Default bootstrap theming
