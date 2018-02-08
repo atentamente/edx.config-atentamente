@@ -40,10 +40,6 @@
 .footer-column {
     float: left;
     width: 33.33%;
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid red;
 }
 
 .footer-row {
@@ -85,6 +81,7 @@
     </div>
   </div>
 
+
     <div class="colophon">
 
       <!--
@@ -103,23 +100,16 @@
           <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
       % endif
 
+      <!--
       <div class="wrapper-logo">
         <p>
           <a href="/">
-            ## The default logo is a placeholder.
-            ## You can either replace this link entirely or update
-            ## the FOOTER_ORGANIZATION_IMAGE in Django settings.
-            ## If you customize FOOTER_ORGANIZATION_IMAGE, then the image
-            ## can be included in the footer on other sites
-            ## (e.g. a blog or marketing front-end) to provide a consistent
-            ## user experience.  See the branding app for details.
             <img alt="organization logo" src="${footer['logo_image']}">
           </a>
         </p>
       </div>
+    -->
 
-      ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
-      <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
 
       <nav class="nav-legal" aria-label="${_('Legal')}">
         <ul>
@@ -133,6 +123,8 @@
       </nav>
     </div>
 
+    ## Right-most column
+    % if not hide_openedx_link:
     <div class="footer-about-openedx">
       <p>
         <a href="${footer['openedx_link']['url']}">
@@ -141,6 +133,11 @@
       </p>
     </div>
     % endif
+
+    <div>
+      ## Site operators: Please do not remove this paragraph! This attributes back to edX and makes your acknowledgement of edX's trademarks clear.
+      <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
+    </div>
   </footer>
 </div>
 % if include_dependencies:
