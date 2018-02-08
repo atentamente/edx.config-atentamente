@@ -20,6 +20,8 @@
     % endif
   >
     <div class="colophon">
+
+      <!--
       <nav class="nav-colophon" aria-label="${_('About')}">
         <ol>
             % for item_num, link in enumerate(footer['navigation_links'], start=1):
@@ -29,6 +31,7 @@
             % endfor
         </ol>
       </nav>
+    -->
 
       % if context.get('include_language_selector', footer_language_selector_is_enabled()):
           <%include file="${static.get_template_path('widgets/footer-language-selector.html')}"/>
