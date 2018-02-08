@@ -51,6 +51,11 @@
   min-height: 150px;
   font-family: Arial;
 }
+.footer-column img {
+  width: 40%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
 
 .footer-row {
   color: #767676;
@@ -116,6 +121,9 @@
   background-color: black;
 }
 
+.no-right-margin {
+  margin-right: 0 !important;
+}
 </style>
 
 <div class="wrapper wrapper-footer">
@@ -128,8 +136,8 @@
     <div class="footer-row">
       <div class="footer-column">
         <h6 class="no-border"></h6>
-        <img src="${static.url("images/banorte-logo.png")}" alt="Banorte logo" width="45%" />
-        <img src="${static.url("images/atentamente-logo.png")}" alt="Atentamente logo" width="45%" />
+        <img src="${static.url("images/banorte-logo.png")}" alt="Banorte logo" />
+        <img src="${static.url("images/atentamente-logo.png")}" alt="Atentamente logo" />
       </div>
       <div class="footer-column">
         <h6>ENLACES</h6>
@@ -151,7 +159,7 @@
     </div>
 
     <div class="footer-footer">
-      <div class="colophon">
+      <div class="colophon no-right-margin">
         <nav class="nav-legal" aria-label="${_('Legal')}">
           <ul>
             % for item_num, link in enumerate(footer['legal_links'], start=1):
