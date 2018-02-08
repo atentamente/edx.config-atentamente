@@ -12,7 +12,7 @@
   padding-bottom: $baseline/2;
   border-bottom: 2px solid theme-color("primary");
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-//  background: theme-color("inverse");
+  background: $header-bg;   //mcdaniel feb-2018
 
   /*
     Logo and course identification block
