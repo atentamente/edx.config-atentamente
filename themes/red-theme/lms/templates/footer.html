@@ -13,6 +13,7 @@
   .wrapper-footer {
     background-color: #61514e;
     width: 100%;
+    padding: 0;
   }
 
   #footer-openedx .colophon {
@@ -41,15 +42,17 @@
   float: left;
   width: 33.33%;
   text-align: center;
-  padding: 15px;
+  padding: 0;
   margin-bottom: 15px;
-  border: 1px solid red;
+  margin-top: 15px;
   background-color: blue;
+  min-height: 250px;
 }
 
 .footer-row {
+  font-family: Merriweather;
+  color: #f1f1f1;
   background-color: yellow;
-  min-height: 150px;
 }
 
 .footer-row:after {
@@ -74,9 +77,6 @@
 
 <div class="wrapper wrapper-footer">
   <footer id="footer-openedx" class="grid-container"
-    ## When rendering the footer through the branding API,
-    ## the direction may not be set on the parent element,
-    ## so we set it here.
     % if bidi:
       dir=${bidi}
     % endif
