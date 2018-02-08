@@ -9,8 +9,18 @@
 <% footer = get_footer(is_secure=is_secure) %>
 <%namespace name='static' file='static_content.html'/>
 
+<style>
+  .wrapper-footer {
+    background-color: #61514e;
+    width: 100%;
+  }
 
-<div class="wrapper wrapper-footer" style="background-color: #61514e; width: 100%;">
+  .copyright {
+    color: #f1f1f1;
+  }
+</style>
+
+<div class="wrapper wrapper-footer">
   <footer id="footer-openedx" class="grid-container"
     ## When rendering the footer through the branding API,
     ## the direction may not be set on the parent element,
