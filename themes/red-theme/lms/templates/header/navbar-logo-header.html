@@ -18,8 +18,9 @@ from branding import api as branding_api
     }
     .logo-small-right {
       float: right;
+      margin-right: 5%;
     }
-    .logo-small-left .logo-small-right {
+    .logo-small-left, .logo-small-right {
       visibility: hidden;
       height: 0;
     }
@@ -29,9 +30,10 @@ from branding import api as branding_api
         visibility: hidden;
         height: 0;
     }
-    .logo-small-left .logo-small-right {
+    .logo-small-left, .logo-small-right {
       visibility: visible;
-      height: inherit;
+      height: auto;
+      width: 40%;
     }
 
   }
@@ -39,8 +41,11 @@ from branding import api as branding_api
 <h1 class="header-logo">
   <a href="/">
     <%block name="navigation_logo">
-    <img  class="logo" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
-    <img  class="logo-small-left" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+    ## This is the default site logo: "Lideres Educativos - Fundacion Banorte"
+    <img class="logo" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+
+    ##Responsive styling: these are reduced-size logos for both Banorte and Atentamente
+    <img class="logo-small-left" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
     <img class="logo-small-right" src="${static.url("images/logo-atentamente.png")}" alt="Atentamente logo" />
     </%block>
   </a>
