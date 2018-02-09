@@ -14,7 +14,14 @@ from django.utils.translation import ugettext as _
   show_sysadmin_dashboard = settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff
   self.real_user = getattr(user, 'real_user', user)
 %>
-
+<style>
+ .global-header .nav-links .main .nav-tab a {
+   color: #969696;
+ }
+ .global-header .nav-links .secondary .nav-item a {
+   color: #969696;
+ }
+</style>
 <div class="nav-links">
   <div class="main">
     % if show_dashboard_tabs:
@@ -62,5 +69,3 @@ from django.utils.translation import ugettext as _
     <%include file="user_dropdown.html"/>
   </div>
 </div>
-
-
