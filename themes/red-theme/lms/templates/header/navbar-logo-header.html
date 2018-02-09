@@ -12,11 +12,36 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 # App that handles subdomain specific branding
 from branding import api as branding_api
 %>
+<style>
+    .logo-small-left {
+      float: left;
+    }
+    .logo-small-right {
+      float: right;
+    }
+    .logo-small-left .logo-small-right {
+      visibility: hidden;
+      height: 0;
+    }
 
+  @media (max-width: 992px) {
+    .logo {
+        visibility: hidden;
+        height: 0;
+    }
+    .logo-small-left .logo-small-right {
+      visibility: visible;
+      height: inherit;
+    }
+
+  }
+</style>
 <h1 class="header-logo">
   <a href="/">
     <%block name="navigation_logo">
     <img  class="logo" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+    <img  class="logo-small-left" src="${branding_api.get_logo_url(is_secure)}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+    <img class="logo-small-right" src="${static.url("images/logo-atentamente.png")}" alt="Atentamente logo" />
     </%block>
   </a>
   % if course:

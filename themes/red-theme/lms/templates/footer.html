@@ -117,7 +117,6 @@
   width: 10%;
   margin: 0;
   padding: 0;
-  background-color: black;
 }
 
 .no-right-margin {
@@ -135,8 +134,8 @@
     <div class="footer-row">
       <div class="footer-column">
         <h6 class="no-border"></h6>
-        <img src="${static.url("images/banorte-logo.png")}" alt="Banorte logo" />
-        <img src="${static.url("images/atentamente-logo.png")}" alt="Atentamente logo" />
+        <img src="${static.url("images/logo-banorte-dark.png")}" alt="Banorte logo" />
+        <img src="${static.url("images/logo-atentamente.png")}" alt="Atentamente logo" />
       </div>
       <div class="footer-column">
         <h6>ENLACES</h6>
@@ -166,7 +165,7 @@
                 <a href="${link['url']}">${link['title']}</a>
               </li>
             % endfor
-            <li><a href='https://lawrencemcdaniel.com/' target="_blank">site credits</a></li>
+            <li><a href='https://lawrencemcdaniel.com/' target="_blank">Site Credits</a></li>
           </ul>
         </nav>
         <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
