@@ -15,15 +15,20 @@ from branding import api as branding_api
 <style>
     #logo-small-left {
       float: left;
-      margin-left: -80%;
+      left:0;
+      margin-left: 75px;
     }
     #logo-small-right {
       float: right;
-      margin-right: 5%;
+      right:0;
+      margin-right: 25px;
     }
     #logo-small-left, #logo-small-right {
       visibility: hidden;
       height: 0;
+      position: absolute;
+      top:0;
+      margin-top: 10px;
     }
 
   @media (max-width: 991px) {
