@@ -13,22 +13,29 @@ from openedx.core.djangoapps.site_configuration import helpers as configuration_
 from branding import api as branding_api
 %>
 <style>
-    #logo-small-left {
-      float: left;
-      left:0;
-      margin-left: 75px;
-    }
+  #logo-small-left {
+    float: left;
+    left:0;
+    margin-left: 75px;
+  }
+  #logo-small-right {
+    float: right;
+    right:0;
+    margin-right: 25px;
+  }
+  #logo-small-left, #logo-small-right {
+    visibility: hidden;
+    height: 0;
+    position: absolute;
+    top:0;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 480px) and (max-width: 991px) {
     #logo-small-right {
-      float: right;
-      right:0;
-      margin-right: 25px;
-    }
-    #logo-small-left, #logo-small-right {
-      visibility: hidden;
-      height: 0;
-      position: absolute;
-      top:0;
-      margin-top: 10px;
+      visibility: visible;
+      height: auto !important;
+      width: 200px !important;
     }
 
   @media (max-width: 991px) {
@@ -38,7 +45,7 @@ from branding import api as branding_api
         width: 0 !important;
         margin-left: 0 !important;
     }
-    #logo-small-left, #logo-small-right {
+    #logo-small-left {
       visibility: visible;
       height: auto !important;
       width: 200px !important;
