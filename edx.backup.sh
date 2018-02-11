@@ -65,4 +65,7 @@ fi
 #Remove the working folder
 echo "Cleaning up"
 sudo rm -r "$WORKING_DIRECTORY"
+
+echo "Sync backup to AWS S3 backup folder"
+aws s3 sync /home/ubuntu/backups s3://educacion.atentamente.mx/backups
 echo "Done!"
