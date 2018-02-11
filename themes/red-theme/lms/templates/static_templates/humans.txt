@@ -1,0 +1,15 @@
+Open edX site built and maintained by:
+Lawrence McDaniel
+Full-Stack Developer & Business Analyst
+CV: lawrencemcdaniel.com | linkedin.com/in/lawrencemcdaniel
+Code Samples: horrors.lawrencemcdaniel.com | github.com/lpm0073
+Contact: lpm0073@gmail.com | USA: +1 (415) 766-9012 | MEX: +52 1 (55) 4388-3070
+
+
+Other Open edX sites of mine
+==================================
+http://edx.netecdigital.com/
+https://edx.itvalletla.edu.mx/
+https://cursos.enlinea.in/
+https://educacion.atentamente.mx/
+http://courses.learnmel.com
