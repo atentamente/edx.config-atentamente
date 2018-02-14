@@ -13,5 +13,3 @@ cp /home/ubuntu/edx.config-atentamente/conf/cms.auth.json /edx/app/edxapp/cms.au
 
 chmod 644 /edx/app/edxapp/*.env.json
 chmod 755 /edx/app/edxapp/*.auth.json
-/edx/bin/supervisorctl restart edxapp:
-/edx/bin/supervisorctl restart edxapp_worker:
