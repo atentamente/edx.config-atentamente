@@ -187,9 +187,9 @@
                 <a href="${link['url']}">${link['title']}</a>
               </li>
             % endfor
-            <li><a href='about' target="_blank">Cerce de</a></li>
-            <li><a href='contact' target="_blank">Contacto</a></li>
-            <li><a href='https://lawrencemcdaniel.com/' target="_blank">Site Credits</a></li>
+            <li class="nav-legal-04"><a href='about' target="_blank">Cerce de</a></li>
+            <li class="nav-legal-05"><a href='contact' target="_blank">Contacto</a></li>
+            <li class="nav-legal-06"><a href='https://lawrencemcdaniel.com/' target="_blank">Site Credit</a></li>
           </ul>
         </nav>
         <p class="copyright">${footer['copyright']} ${u" | {icp}".format(icp=getattr(settings,'ICP_LICENSE')) if getattr(settings,'ICP_LICENSE',False) else ""}</p>
