@@ -1,0 +1,35 @@
+<%page expression_filter="h"/>
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+
+<%block name="pagetitle">${_("Contact")}</%block>
+
+<style>
+  .contact-box {
+    width: 50%;
+    margin: 25;
+    text-align: center;
+    background-color: gray;
+    color: white;
+  }
+</style>
+<main id="main" aria-label="Content" tabindex="-1">
+    <section class="container about">
+        <h1>Contacto</h1>
+
+        <div class="contact-box">
+
+          <address>
+            CIUDAD DE MÉXICO<br />
+            Tamaulipas #236, interior 502<br />
+            Colonia Hipódromo Condesa,<br />
+            Cuauhtémoc, 06100, CDMX.<br />
+            <a href="http://atentamente.mx/" target="_blank">atentamente.mx</a>
+            e: info@atentamente.mx<br />
+            t:  +55 9688 6479 +55 7587 6143<br />
+                +55 5925 1506
+          </address>
+       </div>
+
+    </section>
+</main>
