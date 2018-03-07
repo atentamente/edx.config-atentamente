@@ -295,7 +295,14 @@ div.info-wrapper {
         a {
           display: block;
           padding: 0;
-          color: $link-color;
+          /*
+            mcdaniel: change book mark links color from red to blue
+
+            variable assigment $atentamente-blue-color from
+            ../_variables.scss
+          */
+          color: $atentamente-blue-color;
+/*          color: $link-color; */
 
           &:hover,
           &:focus {
