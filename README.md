@@ -45,6 +45,25 @@ sudo ./edx.install-theme.sh
 top
 ```
 
+## In-Video Quiz XBlock installation
+* clone into the home folder: /home/ubuntu/
+```
+cd ~
+git clone https://github.com/Stanford-Online/xblock-in-video-quiz.git
+sudo chown edxapp xblock-in-video-quiz
+sudo chgrp edxapp xblock-in-video-quiz
+sudo -u edxapp /edx/bin/pip.edxapp install /home/ubuntu/xblock-in-video-quiz
+sudo ./edx.compile-assets.sh
+```
+
+## Setup Annotation Tools
+### Overview
+http://annotation.chs.harvard.edu/setup.php
+https://osc.hul.harvard.edu/liblab/projects/catch-common-annotation-tagging-and-citation-harvard
+
+### Installation instructions
+http://catcha.readthedocs.io/en/latest/admin-guide/installation/
+
 ## SMTP Setup
 https://openedx.atlassian.net/wiki/spaces/OpenOPS/pages/64913413/How+to+make+SMTP+work+in+your+Open+EdX+fullstack+instance
 
