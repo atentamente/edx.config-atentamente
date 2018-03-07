@@ -1,5 +1,15 @@
 # Custom Open edX theme for Atentamente.mx
 
+
+### Notes on modifying translated text
+1. URL: https://github.com/edx/edx-platform/wiki/Internationalization-and-localization
+2. Source: /edx/app/edxapp/edx-platform/conf/locale/es_419/LC_MESSAGES/django.po
+3. To recompile changes:
+```
+sudo ~/edx.compile-language.sh
+```
+
+
 ## To Install theme
 1. copy installation scripts to your EC2 Ubuntu instance
 ```
