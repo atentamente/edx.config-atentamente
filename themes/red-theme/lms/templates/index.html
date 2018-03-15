@@ -30,6 +30,14 @@ from openedx.core.djangolib.markup import HTML, Text
   padding-top: 5px;
   text-align: center;
 }
+
+.home>header .title {
+  visibility: hidden; /* to complete hide the pop up banner on welcome page. */
+}
+
+.home>header .outer-wrapper {
+  max-width: none !important; /* make welcome page photo span entire screen width. */
+}
 </style>
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
