@@ -8,6 +8,10 @@ from django.core.urlresolvers import reverse
 from openedx.core.djangolib.markup import HTML, Text
 %>
 <style>
+.content-wrapper {
+  max-width: none !important;
+}
+
 .outer-wrapper {
   background-image:url("${static.url("images/foto-home.jpg")}" );
   background-size: cover;
