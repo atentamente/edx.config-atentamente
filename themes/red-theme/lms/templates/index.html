@@ -42,6 +42,38 @@ from openedx.core.djangolib.markup import HTML, Text
 .home>header .outer-wrapper {
   max-width: none !important; /* make welcome page photo span entire screen width. */
 }
+
+
+/***********************/
+
+/*-------------- Responsive Styling -----------------------*/
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  
+}
+
+/********** Extra small devices only (e.g., iPhone 7) **********/
+@media (max-width: 767px) {
+  .outer-wrapper {
+     background-image:url("${static.url("images/foto-home-skinny.jpg")}" ) !important;
+   }
+}
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+
+}
+
 </style>
 <main id="main" aria-label="Content" tabindex="-1">
     <section class="home">
