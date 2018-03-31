@@ -14,7 +14,7 @@ from openedx.core.djangolib.markup import HTML, Text
 
 .outer-wrapper {
   background-image:url("${static.url("images/foto-home.jpg")}" );
-  background-size: cover;
+  background-size: contain; /**** Luis change, testing if the contain value works******/
 }
 
 .home>header .title {
@@ -65,9 +65,9 @@ from openedx.core.djangolib.markup import HTML, Text
 
 /********** Extra small devices only (e.g., iPhone 7) **********/
 @media (max-width: 767px) {
-  .outer-wrapper {
+  /*.outer-wrapper {
      background-image:url("${static.url("images/foto-home-767.jpg")}" ) !important;
-   }
+   }*/
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
