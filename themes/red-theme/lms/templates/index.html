@@ -59,7 +59,10 @@ from openedx.core.djangolib.markup import HTML, Text
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
+   .outer-wrapper {
+     /*background-image:url("${static.url("images/foto-home-767.jpg")}" ) !important;*/
+     padding: 38px;
+   }
 }
 
 /********** Small devices only **********/
@@ -69,9 +72,10 @@ from openedx.core.djangolib.markup import HTML, Text
 
 /********** Extra small devices only (e.g., iPhone 7) **********/
 @media (max-width: 767px) {
-  /*.outer-wrapper {
-     background-image:url("${static.url("images/foto-home-767.jpg")}" ) !important;
-   }*/
+  .outer-wrapper {
+     /*background-image:url("${static.url("images/foto-home-767.jpg")}" ) !important;*/
+     padding: 12px;
+   }
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
