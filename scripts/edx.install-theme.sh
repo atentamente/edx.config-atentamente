@@ -2,7 +2,7 @@
 
 rm -rf edx.config-atentamente
 
-git clone https://github.com/lpm0073/edx.config-atentamente.git
+git clone https://github.com/atentamente/edx.config-atentamente.git
 chown edxapp -R edx.config-atentamente
 chgrp edxapp -R edx.config-atentamente
 

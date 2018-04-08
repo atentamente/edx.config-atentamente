@@ -40,7 +40,7 @@ echo "Done backing up MySQL"
 #Backup Mongo
 for db in edxapp cs_comment_service_development; do
     echo "Dumping Mongo db ${db}..."
-    mongodump -u admin -p'ADD-YOUR-PASSWORD' -h localhost --authenticationDatabase admin -d ${db} --out mongo-dump-${NOW}
+    mongodump -u admin -p'Ke0SEpfrBBZ57z44KKfIMZfnYjjJVZEuD4T' -h localhost --authenticationDatabase admin -d ${db} --out mongo-dump-${NOW}
 done
 echo "Done backing up MongoDB"
 
@@ -69,3 +69,4 @@ sudo rm -r "$WORKING_DIRECTORY"
 echo "Sync backup to AWS S3 backup folder"
 aws s3 sync /home/ubuntu/backups s3://educacion.atentamente.mx/backups
 echo "Done!"
+
