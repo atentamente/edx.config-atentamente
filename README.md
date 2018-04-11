@@ -232,8 +232,14 @@ CMS Custom Theming: to update static assets, like the logo in the page header fo
 ```
 
 ## Lets Encrypt
-  https://certbot.eff.org/#ubuntuxenial-nginx
-  https://github.com/CDOT-EDX/ProductionStackDocs/wiki/Configuring-SSL-for-NGINX
+  - [https://certbot.eff.org/#ubuntuxenial-nginx](https://certbot.eff.org/#ubuntuxenial-nginx)
+  - [https://github.com/CDOT-EDX/ProductionStackDocs/wiki/Configuring-SSL-for-NGINX](https://github.com/CDOT-EDX/ProductionStackDocs/wiki/Configuring-SSL-for-NGINX)
+
+Note that the issue/update procedure changed
+https://github.com/certbot/certbot/issues/5405
+```
+sudo certbot --authenticator standalone --installer nginx --pre-hook "service nginx stop" --post-hook "service nginx start"
+```
 
 ### Certificate:
 /etc/letsencrypt/live/educacion.atentamente.mx/fullchain.pem
