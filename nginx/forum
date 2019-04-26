@@ -40,3 +40,6 @@ location @proxy_to_app {
     proxy_pass http://forum_app_server;
   }
 }
+server;
+  }
+}
