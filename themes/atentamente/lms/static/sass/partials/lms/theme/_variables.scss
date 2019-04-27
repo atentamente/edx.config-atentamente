@@ -1,0 +1,21 @@
+// Sample red theme to demonstrate SASS overrides
+
+// Theme colors
+//
+// Note: define colors needed by your theme first
+
+// Define the primary red color
+$red: #ea1d2d;
+
+// Make red the primary color
+$primary: $red;    // from mauricio
+
+// Theme fonts
+//$font-family-sans-serif: cursive;
+//$font-family-sans-serif: Merriweather;
+
+
+
+// Default bootstrap theming
+
+@import 'edx-bootstrap/sass/open-edx/theme';
