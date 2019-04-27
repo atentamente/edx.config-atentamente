@@ -13,8 +13,8 @@ server {
   server_name forum.*;
   listen 18080 ssl;
 
-  ssl_certificate /etc/letsencrypt/live/studio.atentamente.mx/fullchain.pem; # managed by Certbot
-  ssl_certificate_key /etc/letsencrypt/live/studio.atentamente.mx/privkey.pem; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/educacion.atentamente.mx/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/educacion.atentamente.mx/privkey.pem; # managed by Certbot
   include /etc/letsencrypt/options-ssl-nginx.conf;
   ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
@@ -38,8 +38,5 @@ location @proxy_to_app {
 
     proxy_redirect off;
     proxy_pass http://forum_app_server;
-  }
-}
-server;
   }
 }
