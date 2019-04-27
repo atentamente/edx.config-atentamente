@@ -4,7 +4,7 @@
 $notification-highlight-border-color: $uxpl-green-base !default;
 $notification-background: rgb(255, 255, 255) !default
 
-.home {
+  .home{
   @include clearfix();
 
   max-width: map-get($container-max-widths, xl);
@@ -173,7 +173,7 @@ div.info-wrapper {
           @include padding-left($baseline);
           @include float(left);
         }
-
+      
 
         .toggle-visibility-button {
           @extend %t-title9;
@@ -246,14 +246,7 @@ div.info-wrapper {
     font-size: 14px;
 
     a {
-      /*
-        mcdaniel: change book mark color from red to blue
-
-        variable assigment $atentamente-blue-color from
-        ../_variables.scss
-      */
-      color: $atentamente-blue-color;
-      /* color: $link-color; */
+      color: $link-color;
       display: block;
       font-size: 16px;
 
@@ -295,14 +288,7 @@ div.info-wrapper {
         a {
           display: block;
           padding: 0;
-          /*
-            mcdaniel: change book mark links color from red to blue
-
-            variable assigment $atentamente-blue-color from
-            ../_variables.scss
-          */
-          color: $atentamente-blue-color;
-/*          color: $link-color; */
+          color: $link-color;
 
           &:hover,
           &:focus {
@@ -312,13 +298,12 @@ div.info-wrapper {
 
         &.expandable,
         &.collapsable {
-          margin: 0 16px 14px 16px;
+          margin: 0 16px 14px;
 
-          @include transition(all .2s linear 0s);
+          @include transition(all 0.2s linear 0s);
 
           h4 {
-            color: $atentamente-blue-color;
-            /* color: $link-color; */
+            color: $link-color;
             font-size: 1em;
             font-weight: normal;
             padding-left: 30px;
@@ -329,7 +314,7 @@ div.info-wrapper {
           background: $white;
           border-radius: 3px;
           padding: 14px 0;
-          box-shadow: 0 0 1px 1px $shadow-l1, 0 1px 3px rgba(0, 0, 0, .25);
+          box-shadow: 0 0 1px 1px $shadow-l1, 0 1px 3px rgba(0, 0, 0, 0.25);
 
           h4 {
             margin-bottom: 16px;

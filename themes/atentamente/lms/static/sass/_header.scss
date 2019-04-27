@@ -3,16 +3,20 @@
   navigation bar that can exist on any of the v1, v2 or bootstrap
   pages.
 */
-
-// edited by McDaniel 2018-02
 .global-header {
   box-sizing: border-box;
   width: 100%;
+  position: relative;
   overflow: hidden;
   padding-bottom: $baseline/2;
-  border-bottom: 2px solid theme-color("primary");
+  border-bottom: 1px solid theme-color("primary");
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-  background: $header-bg;   //mcdaniel feb-2018
+  background: theme-color("inverse");
+  line-height: 1.5;
+
+  @include media-breakpoint-up(lg) {
+    position: inherit;
+  }
 
   /*
     Logo and course identification block
@@ -49,8 +53,7 @@
       @include margin($baseline*0.8, 0, 0, $baseline);
 
       font-size: $font-size-sm;
-      //color: theme-color("dark");    //mcdaniel feb-2017
-      color: #969696;
+      color: theme-color("dark");
       line-height: 1em;
       display: none;
 
@@ -65,6 +68,12 @@
       @include media-breakpoint-up(lg) {
         display: block;
       }
+    }
+  }
+
+  .edx-cookie-banner-wrapper {
+    .edx-cookie-banner {
+      min-width: 0;
     }
   }
 
@@ -105,12 +114,13 @@
             font-weight: $font-weight-normal;
             display: inline-block;
             margin-bottom: -1*$baseline/2;
-            border-bottom: 4px hidden theme-color("dark");
+            border-bottom: 4px solid transparent;
             cursor: pointer;
 
             &.active,
             &:hover {
               border-bottom-style: solid;
+              border-bottom-color: theme-color("primary");
             }
 
             &:hover {
@@ -199,7 +209,7 @@
           position: absolute;
           background-color: theme-color("inverse");
           color: theme-color("secondary");
-          right: 30px;
+          @include right(30px);
           top: 55px;
           z-index: 10;
 
@@ -243,11 +253,13 @@
   @include media-breakpoint-down(md) {
     .main-header {
       height: $header-logo-height;
+      position: inherit;
     }
 
     // Display the menu icon and allow for transition to an X on click
     .hamburger-menu {
       @include left($baseline);
+
       position: absolute;
       top: $baseline*0.9;
       width: 30px;
@@ -315,6 +327,10 @@
   // Hiding and displaying control classes
   .hidden {
     display: none !important;
+  }
+
+  @media print {
+    border-bottom: 1px solid $gray-500 !important;
   }
 }
 
