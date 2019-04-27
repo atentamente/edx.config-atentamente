@@ -22,7 +22,7 @@ sudo chgrp -R www-data /edx/app/edxapp/*.json
 
 echo 2. Nginx custom configurations
 # these contain lets encrypt ssl certificate and https redirection
-sudo cp /home/ubuntu/edx.config-atentamente/edx/app/nginx/* /edx/app/nginx/sites-available/
+sudo cp /home/ubuntu/edx.config-atentamente/edx/app/nginx/sites-available/* /edx/app/nginx/sites-available/
 
 echo 3. Ansible customizations
 # copy server-vars and any other mods to ansible-related work flows
