@@ -12,7 +12,7 @@
 #             6. admin scripts
 #---------------------------------------------------------
 
-rm -rf /home/ubuntu/edx.config-atentamente
+sudo rm -rf /home/ubuntu/edx.config-atentamente
 git clone https://github.com/atentamente/edx.config-atentamente.git
 
 echo 1. open edx LMS + CMS configuration
@@ -20,16 +20,15 @@ sudo cp /home/ubuntu/edx.config-atentamente/edx/app/edxapp/*.json /edx/app/edxap
 sudo chown -R edxapp /edx/app/edxapp/*.json
 sudo chgrp -R www-data /edx/app/edxapp/*.json
 
-#echo 2. Nginx custom configurations
+echo 2. Nginx custom configurations
 # these contain lets encrypt ssl certificate and https redirection
-sudo cp /home/ubuntu/edx.config-atentamente/edx/app/nginx/lms /edx/app/nginx/sites-available/
-sudo cp /home/ubuntu/edx.config-atentamente/edx/app/nginx/cms /edx/app/nginx/sites-available/
+sudo cp /home/ubuntu/edx.config-atentamente/edx/app/nginx/* /edx/app/nginx/sites-available/
 
-#echo 3. Ansible customizations
+echo 3. Ansible customizations
 # copy server-vars and any other mods to ansible-related work flows
 sudo cp /home/ubuntu/edx.config-atentamente/edx/app/edx_ansible/*.* /edx/app/edx_ansible/edx_ansible/
 
-#echo 4. install custom theme
+echo 4. install custom theme
 sudo cp -R /home/ubuntu/edx.config-atentamente/themes/atentamente /edx/app/edxapp/edx-platform/themes/
 sudo chown -R edxapp /edx/app/edxapp/edx-platform/themes/
 sudo chgrp -R www-data /edx/app/edxapp/edx-platform/themes/
