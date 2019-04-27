@@ -44,8 +44,9 @@
       @include float(left);
       @include margin(12px, 10px, 0, 10px);
 
-      color: $body-color;
-
+      //color: $body-color;	      color: $body-color;
+      // mcdaniel feb-2017
+      color: #969696;
       .provider {
         font-weight: bold;
       }

@@ -173,7 +173,7 @@ div.info-wrapper {
           @include padding-left($baseline);
           @include float(left);
         }
-      
+
 
         .toggle-visibility-button {
           @extend %t-title9;
@@ -246,7 +246,13 @@ div.info-wrapper {
     font-size: 14px;
 
     a {
-      color: $link-color;
+      /*
+          mcdaniel: change book mark color from red to blue
+           variable assigment $atentamente-blue-color from
+          ../_variables.scss
+        */
+      color: $atentamente-blue-color;
+      //color: $link-color;
       display: block;
       font-size: 16px;
 
@@ -288,7 +294,13 @@ div.info-wrapper {
         a {
           display: block;
           padding: 0;
-          color: $link-color;
+          /*
+            mcdaniel: change book mark links color from red to blue
+             variable assigment $atentamente-blue-color from
+            ../_variables.scss
+          */
+          color: $atentamente-blue-color;
+          //color: $link-color;
 
           &:hover,
           &:focus {
@@ -303,7 +315,8 @@ div.info-wrapper {
           @include transition(all 0.2s linear 0s);
 
           h4 {
-            color: $link-color;
+            color: $atentamente-blue-color;
+            //color: $link-color;
             font-size: 1em;
             font-weight: normal;
             padding-left: 30px;
