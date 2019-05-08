@@ -1,32 +1,22 @@
 upstream lms-backend {
             server 127.0.0.1:8000 fail_timeout=0;
-
+    
 }
 
 
-server {
-    listen 80;
-    return 301 https://$host$request_uri;
-}
+
 
 
 server {
   # LMS configuration file for nginx, templated by ansible
   server_name educacion.atentamente.mx
-
-
+  
   # error pages
   error_page 504 /server/server-error.html;
   error_page 502 /server/server-error.html;
   error_page 500 /server/server-error.html;
-
-
-  listen 443 ssl;
-  ssl_certificate /etc/letsencrypt/live/educacion.atentamente.mx/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/educacion.atentamente.mx/privkey.pem;
-  include /etc/letsencrypt/options-ssl-nginx.conf;
-  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
+  
+  
   location @empty_json {
     # This location will return an empty body with content-type application/json
     # If this location is referenced by the error_page directive the
@@ -36,10 +26,8 @@ server {
     return 200;
   }
 
-  listen 80 default_server;
-
-
-
+  
+  
   # prevent the browser from doing MIME-type sniffing
   add_header X-Content-Type-Options nosniff;
 
@@ -47,8 +35,8 @@ server {
   add_header P3P 'CP="Open edX does not have a P3P policy."';
 
 
-
-
+  
+  
   access_log /edx/var/log/nginx/access.log p_combined;
   error_log /edx/var/log/nginx/error.log error;
 
@@ -59,7 +47,7 @@ server {
 
   rewrite ^(.*)/favicon.ico$ /static/images/favicon.ico last;
 
-
+  
   # Blackholes an archive of python library files that instructors
   # may provide for sandboxed python problem types, the internal
   # directive will result in nginx emitting an nginx 404. Users
@@ -67,16 +55,16 @@ server {
   location ~* python_lib.zip {
     internal;
   }
-
+  
 # Common settings used across nginx configurations
 
 # Disables server version feedback on pages and in headers
 server_tokens off;
 
   location @proxy_to_lms_app {
-    proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Forwarded-Port $server_port;
-    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+    proxy_set_header X-Forwarded-Port $http_x_forwarded_port;
+    proxy_set_header X-Forwarded-For $http_x_forwarded_for;
 
     # newrelic-specific header records the time when nginx handles a request.
     proxy_set_header X-Queue-Start "t=${msec}";
@@ -86,7 +74,7 @@ server_tokens off;
     proxy_redirect off;
     proxy_pass http://lms-backend;
 
-
+    
   }
 
   location @proxy_to_lms_app_api {
@@ -94,9 +82,9 @@ server_tokens off;
     error_page 502 @empty_json;
     error_page 500 @empty_json;
 
-    proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Forwarded-Port $server_port;
-    proxy_set_header X-Forwarded-For $remote_addr;
+    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+    proxy_set_header X-Forwarded-Port $http_x_forwarded_port;
+    proxy_set_header X-Forwarded-For $http_x_forwarded_for;
 
     # newrelic-specific header records the time when nginx handles a request.
     proxy_set_header X-Queue-Start "t=${msec}";
@@ -109,7 +97,7 @@ server_tokens off;
       }
 
   location / {
-
+    
     try_files $uri @proxy_to_lms_app;
   }
 
@@ -271,14 +259,39 @@ location ~ ^/media/(?P<file>.*) {
         try_files /staticfiles/$collected /course_static/$collected =404;
     }
 
-
+    
     # Non-hashed files (there should be very few / none of these)
     add_header "Cache-Control" $cache_header_short_lived always;
   }
 
-  # Redirect non-https traffic to https
-  # if ($scheme != "https") {
-  #     return 301 https://$host$request_uri;
-  # } # managed by Certbot
+  
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/studio.atentamente.mx/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/studio.atentamente.mx/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+
+
+
+
+
+server {
+    if ($host = educacion.atentamente.mx) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+  server_name educacion.atentamente.mx
+  
+  # error pages
+  error_page 504 /server/server-error.html;
+
+  listen 80 default_server;
+    return 404; # managed by Certbot
+
 
 }
